@@ -1,3 +1,8 @@
+#Description
+Cloud at Cost API
+
+Information and power operations.
+
 # URL
 https://panel.cloudatcost.com/api/v2/
 
@@ -47,7 +52,7 @@ Error:
 }
 ```
 
-# List servers
+## List servers
 List all servers on the account
 
 REQUEST
@@ -104,7 +109,7 @@ Output:
 }
 ```
 
-# List templates
+## List templates
 List all templates available
 
 REQUEST
@@ -190,7 +195,7 @@ Output:
   ]
 }
 ```
-# List tasks
+## List tasks
 List all tasks in operation
 
 REQUEST
@@ -238,7 +243,7 @@ Output:
 }
 ```
 
-# Power operations
+## Power operations
 Activate server power operations
 
 REQUEST
@@ -284,4 +289,5 @@ Unsucessful:
     "error_description": "task already running"
 }
 ```
-
+#TODO
+Metric information
