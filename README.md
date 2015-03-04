@@ -57,11 +57,13 @@ Example:
 GET https://panel.cloudatcost.com/api/v2/listservers
 
 PARAMS 
-  key = KEY
-  login = example@example.com
+
+key = KEY
+ login = example@example.com
 
 EXAMPLE
-  curl https://panel.cloudatcost.com/api/v2/listservers?key=KEY&login=example@example.com
+
+curl https://panel.cloudatcost.com/api/v2/listservers?key=KEY&login=example@example.com
 
 Output:
 ```json
@@ -109,13 +111,16 @@ GET - listtemplates
 List all templates available
 
 Example:
+
 GET https://panel.cloudatcost.com/api/v2/listtemplates
 
 PARAMS 
-  key = KEY
-  login = example@example.com
+
+key = KEY
+login = example@example.com
 
 EXAMPLE
+
 curl https://panel.cloudatcost.com/api/v2/listtemplates?key=KEY&login=example@example.com
 
 Output:
@@ -197,11 +202,13 @@ Example:
 GET https://panel.cloudatcost.com/api/v2/listtasks
 
 PARAMS 
-  key = KEY
-  login = example@example.com
+
+key = KEY
+login = example@example.com
 
 EXAMPLE
-  curl https://panel.cloudatcost.com/api/v2/listtasks?key=KEY&login=example@example.com
+
+curl https://panel.cloudatcost.com/api/v2/listtasks?key=KEY&login=example@example.com
 
 Output:
 ```json
@@ -244,13 +251,15 @@ Example:
 POST https://panel.cloudatcost.com/api/v2/poweropp
 
 PARAMS
-  key = KEY
-  login = example@example.com
-  sid = SERVERID
-  action = poweron,poweroff,reset
+
+key = KEY
+login = example@example.com
+sid = SERVERID
+action = poweron,poweroff,reset
 
 EXAMPLE
-  curl --data "key=KEY&login=example@example.com&sid=12345&action=reset" https://panel.cloudatcost.com/api/v2/poweropp
+
+curl --data "key=KEY&login=example@example.com&sid=12345&action=reset" https://panel.cloudatcost.com/api/v2/poweropp
 
 Output:
 
