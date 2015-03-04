@@ -1,49 +1,53 @@
 # URL
-https://panel.cloudatcost.com/API/v1/
+https://panel.cloudatcost.com/api/v2/
+
+# Instructions
+1. Sign into your account at https://panel.cloudatcost.com
+2. Click 'settings'
+3. Generate an api key and insert IP information into your account settings
+4. Use curl to access the panel api via the IP documented as well as key and login username/email
 
 # HTTP response codes
 200 Success
-400 Invalid API URL
-403 Invalid or missing API key
+400 Invalid api URL
+403 Invalid or missing api key
 412 Request failed
 500 Internal server error
 503 Rate limit hit
 
 # Function list
-/API/v1/clientlist
-/API/v1/listservers
-/API/v1/listtasks
-/API/v1/listtemplates
-/API/v1/poweropp
-/API/v1/rebuildserver
+/api/v2/listservers
+/api/v2/listtemplates
+/api/v2/listtasks
+/api/v2/poweropp
 
 # Standard response
 Usual respose to each query:
 Success:
-  {
-    "status": "ok",
-      "time": 1425064819,
-      "id": "90000",
-      "data": []
-  }
+{
+  "status": "ok",
+    "time": 1425064819,
+    "id": "90000",
+    "data": []
+}
 Error:
-  {
-    "status": "error",
-      "time": 1425064819,
-      "id": "90000"
-  }
+{
+  "status": "error",
+    "time": 1425064819,
+    "id": "90000"
+}
 
-# Listservers
+# List servers
 GET - listservers
 List all servers on the account
 
 Example:
-GET https://panel.cloudatcost.com/API/v1/listservers
+GET https://panel.cloudatcost.com/api/v2/listservers
 PARAMS 
-  key = KEY
-  login = example@example.com
+key = KEY
+login = example@example.com
 EXAMPLE
-  curl https://panel.cloudatcost.com/API/v1/listservers?key=KEY&login=example@example.com
+curl https://panel.cloudatcost.com/api/v2/listservers?key=KEY&login=example@example.com
 
 Output:
 {
@@ -88,18 +92,18 @@ GET - listtemplates
 List all templates available
 
 Example:
-GET https://panel.cloudatcost.com/API/v1/listtemplates
+GET https://panel.cloudatcost.com/api/v2/listtemplates
 PARAMS 
-  key = KEY
-  login = example@example.com
+key = KEY
+login = example@example.com
 EXAMPLE
-  curl https://panel.cloudatcost.com/API/v1/listtemplates?key=KEY&login=example@example.com
+curl https://panel.cloudatcost.com/api/v2/listtemplates?key=KEY&login=example@example.com
 
 Output:
 {
   "status": "ok",
-  "time": 1425326406,
-  "data": [
+    "time": 1425326406,
+    "data": [
     {
       "id": "26",
       "detail": "CentOS-7-64bit"
@@ -163,18 +167,80 @@ Output:
   ]
 }
 
+# List tasks
+GET - listtasks 
+List all tasks in operation
+
+Example:
+GET https://panel.cloudatcost.com/api/v2/listtasks
+PARAMS 
+key = KEY
+login = example@example.com
+EXAMPLE
+curl https://panel.cloudatcost.com/api/v2/listtasks?key=KEY&login=example@example.com
+
+Output:
+{
+  "status": "ok",
+    "time": 1425504688,
+    "api": "v2",
+    "cid": "734103810",
+    "action": "listtasks",
+    "data": [
+    {
+      "cid": "734103810",
+      "idf": "8548136390745",
+      "serverid": "0",
+      "action": "reset",
+      "status": "completed",
+      "starttime": "1425504093",
+      "finishtime": "1425504094"
+    },
+    {
+      "cid": "734103810",
+      "idf": "2268428551033",
+      "serverid": "254513205",
+      "action": "reset",
+      "status": "pending",
+      "starttime": "1425504295",
+      "finishtime": "1425504312"
+    }
+  ]
+}
+
 # Power operations
 POST - poweropp 
 Activate power operations
 
 Example:
-POST https://panel.cloudatcost.com/API/v1/poweropp
+POST https://panel.cloudatcost.com/api/v2/poweropp
 PARAMS
-  key = KEY
-  login = example@example.com
-  action = poweron,poweroff,reset
+key = KEY
+login = example@example.com
+sid = SERVERID
+action = poweron,poweroff,reset
 EXAMPLE
-  curl --data "key=KEY&login=example@example.com&action=reset" https://panel.cloudatcost.com/API/v1/poweropp
+curl --data "key=KEY&login=example@example.com&sid=12345&action=reset" https://panel.cloudatcost.com/api/v2/poweropp
 
 Output:
+
+Success:
+{
+  "status": "ok",
+    "time": 1425504815,
+    "api": "v2",
+    "serverid": "254513205",
+    "action": "reset",
+    "taskid": 700420024805,
+    "result": "successful"
+}
+
+Unsucessful:
+{
+  "status": "error",
+    "time": 1425505065,
+    "error": 105,
+    "error_description": "task already running"
+}
+
 
