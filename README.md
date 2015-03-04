@@ -48,23 +48,22 @@ Error:
 ```
 
 # List servers
-GET - listservers
-
 List all servers on the account
 
-Example:
+REQUEST
 
 GET https://panel.cloudatcost.com/api/v2/listservers
 
 PARAMS 
 
 key = KEY
- login = example@example.com
+
+login = example@example.com
 
 EXAMPLE
-
+```
 curl https://panel.cloudatcost.com/api/v2/listservers?key=KEY&login=example@example.com
-
+```
 Output:
 ```json
 {
@@ -106,23 +105,22 @@ Output:
 ```
 
 # List templates
-GET - listtemplates 
-
 List all templates available
 
-Example:
+REQUEST
 
 GET https://panel.cloudatcost.com/api/v2/listtemplates
 
 PARAMS 
 
 key = KEY
+
 login = example@example.com
 
 EXAMPLE
-
+```
 curl https://panel.cloudatcost.com/api/v2/listtemplates?key=KEY&login=example@example.com
-
+```
 Output:
 ```json
 {
@@ -193,23 +191,22 @@ Output:
 }
 ```
 # List tasks
-GET - listtasks 
-
 List all tasks in operation
 
-Example:
+REQUEST
 
 GET https://panel.cloudatcost.com/api/v2/listtasks
 
 PARAMS 
 
 key = KEY
+
 login = example@example.com
 
 EXAMPLE
-
+```
 curl https://panel.cloudatcost.com/api/v2/listtasks?key=KEY&login=example@example.com
-
+```
 Output:
 ```json
 {
@@ -242,24 +239,26 @@ Output:
 ```
 
 # Power operations
-POST - poweropp 
+Activate server power operations
 
-Activate power operations
-
-Example:
+REQUEST
 
 POST https://panel.cloudatcost.com/api/v2/poweropp
 
 PARAMS
 
 key = KEY
+
 login = example@example.com
+
 sid = SERVERID
+
 action = poweron,poweroff,reset
 
 EXAMPLE
-
+```
 curl --data "key=KEY&login=example@example.com&sid=12345&action=reset" https://panel.cloudatcost.com/api/v2/poweropp
+```
 
 Output:
 
