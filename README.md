@@ -16,10 +16,12 @@ https://panel.cloudatcost.com/api/v2/
 503 Rate limit hit
 
 # Function list
+```
 /api/v2/listservers
 /api/v2/listtemplates
 /api/v2/listtasks
 /api/v2/poweropp
+```
 
 # Standard response
 Usual respose to each query:
