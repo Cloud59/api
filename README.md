@@ -8,12 +8,14 @@ https://panel.cloudatcost.com/api/v2/
 4. Use curl to access the panel api via the IP documented as well as key and login username/email
 
 # HTTP response codes
+```
 200 Success
 400 Invalid api URL
 403 Invalid or missing api key
 412 Request failed
 500 Internal server error
 503 Rate limit hit
+```
 
 # Function list
 ```
@@ -25,33 +27,44 @@ https://panel.cloudatcost.com/api/v2/
 
 # Standard response
 Usual respose to each query:
+
 Success:
+```json
 {
   "status": "ok",
     "time": 1425064819,
     "id": "90000",
     "data": []
 }
+```
+
 Error:
+```json
 {
   "status": "error",
     "time": 1425064819,
     "id": "90000"
 }
+```
 
 # List servers
 GET - listservers
+
 List all servers on the account
 
 Example:
+
 GET https://panel.cloudatcost.com/api/v2/listservers
+
 PARAMS 
-key = KEY
-login = example@example.com
+  key = KEY
+  login = example@example.com
+
 EXAMPLE
-curl https://panel.cloudatcost.com/api/v2/listservers?key=KEY&login=example@example.com
+  curl https://panel.cloudatcost.com/api/v2/listservers?key=KEY&login=example@example.com
 
 Output:
+```json
 {
   "status": "ok",
     "time": 1425064819,
@@ -88,20 +101,25 @@ Output:
     }
   ]
 }
+```
 
 # List templates
 GET - listtemplates 
+
 List all templates available
 
 Example:
 GET https://panel.cloudatcost.com/api/v2/listtemplates
+
 PARAMS 
-key = KEY
-login = example@example.com
+  key = KEY
+  login = example@example.com
+
 EXAMPLE
 curl https://panel.cloudatcost.com/api/v2/listtemplates?key=KEY&login=example@example.com
 
 Output:
+```json
 {
   "status": "ok",
     "time": 1425326406,
@@ -168,20 +186,25 @@ Output:
     }
   ]
 }
-
+```
 # List tasks
 GET - listtasks 
+
 List all tasks in operation
 
 Example:
+
 GET https://panel.cloudatcost.com/api/v2/listtasks
+
 PARAMS 
-key = KEY
-login = example@example.com
+  key = KEY
+  login = example@example.com
+
 EXAMPLE
-curl https://panel.cloudatcost.com/api/v2/listtasks?key=KEY&login=example@example.com
+  curl https://panel.cloudatcost.com/api/v2/listtasks?key=KEY&login=example@example.com
 
 Output:
+```json
 {
   "status": "ok",
     "time": 1425504688,
@@ -209,24 +232,30 @@ Output:
     }
   ]
 }
+```
 
 # Power operations
 POST - poweropp 
+
 Activate power operations
 
 Example:
+
 POST https://panel.cloudatcost.com/api/v2/poweropp
+
 PARAMS
-key = KEY
-login = example@example.com
-sid = SERVERID
-action = poweron,poweroff,reset
+  key = KEY
+  login = example@example.com
+  sid = SERVERID
+  action = poweron,poweroff,reset
+
 EXAMPLE
-curl --data "key=KEY&login=example@example.com&sid=12345&action=reset" https://panel.cloudatcost.com/api/v2/poweropp
+  curl --data "key=KEY&login=example@example.com&sid=12345&action=reset" https://panel.cloudatcost.com/api/v2/poweropp
 
 Output:
 
 Success:
+```json
 {
   "status": "ok",
     "time": 1425504815,
@@ -236,13 +265,15 @@ Success:
     "taskid": 700420024805,
     "result": "successful"
 }
+```
 
 Unsucessful:
+```json
 {
   "status": "error",
     "time": 1425505065,
     "error": 105,
     "error_description": "task already running"
 }
-
+```
 
