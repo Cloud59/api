@@ -4,7 +4,7 @@ Cloud at Cost API
 Information and power operations.
 
 # URL
-https://panel.cloudatcost.com/api/v2/
+https://panel.cloudatcost.com/api/v1/
 
 # Instructions
 1. Sign into your account at https://panel.cloudatcost.com
@@ -24,10 +24,10 @@ https://panel.cloudatcost.com/api/v2/
 
 # Function list
 ```
-/api/v2/listservers
-/api/v2/listtemplates
-/api/v2/listtasks
-/api/v2/poweropp
+/api/v1/listservers
+/api/v1/listtemplates
+/api/v1/listtasks
+/api/v1/poweropp
 ```
 
 # Standard response
@@ -57,7 +57,7 @@ List all servers on the account
 
 REQUEST
 
-GET https://panel.cloudatcost.com/api/v2/listservers
+GET https://panel.cloudatcost.com/api/v1/listservers
 
 PARAMS 
 
@@ -67,7 +67,7 @@ login = example@example.com
 
 EXAMPLE
 ```
-curl https://panel.cloudatcost.com/api/v2/listservers?key=KEY&login=example@example.com
+curl https://panel.cloudatcost.com/api/v1/listservers?key=KEY&login=example@example.com
 ```
 Output:
 ```json
@@ -114,7 +114,7 @@ List all templates available
 
 REQUEST
 
-GET https://panel.cloudatcost.com/api/v2/listtemplates
+GET https://panel.cloudatcost.com/api/v1/listtemplates
 
 PARAMS 
 
@@ -124,7 +124,7 @@ login = example@example.com
 
 EXAMPLE
 ```
-curl https://panel.cloudatcost.com/api/v2/listtemplates?key=KEY&login=example@example.com
+curl https://panel.cloudatcost.com/api/v1/listtemplates?key=KEY&login=example@example.com
 ```
 Output:
 ```json
@@ -200,7 +200,7 @@ List all tasks in operation
 
 REQUEST
 
-GET https://panel.cloudatcost.com/api/v2/listtasks
+GET https://panel.cloudatcost.com/api/v1/listtasks
 
 PARAMS 
 
@@ -210,14 +210,14 @@ login = example@example.com
 
 EXAMPLE
 ```
-curl https://panel.cloudatcost.com/api/v2/listtasks?key=KEY&login=example@example.com
+curl https://panel.cloudatcost.com/api/v1/listtasks?key=KEY&login=example@example.com
 ```
 Output:
 ```json
 {
   "status": "ok",
     "time": 1425504688,
-    "api": "v2",
+    "api": "v1",
     "cid": "734103810",
     "action": "listtasks",
     "data": [
@@ -248,7 +248,7 @@ Activate server power operations
 
 REQUEST
 
-POST https://panel.cloudatcost.com/api/v2/poweropp
+POST https://panel.cloudatcost.com/api/v1/poweropp
 
 PARAMS
 
@@ -262,7 +262,7 @@ action = poweron,poweroff,reset
 
 EXAMPLE
 ```
-curl --data "key=KEY&login=example@example.com&sid=12345&action=reset" https://panel.cloudatcost.com/api/v2/poweropp
+curl --data "key=KEY&login=example@example.com&sid=12345&action=reset" https://panel.cloudatcost.com/api/v1/poweropp
 ```
 
 Output:
@@ -272,7 +272,7 @@ Success:
 {
   "status": "ok",
     "time": 1425504815,
-    "api": "v2",
+    "api": "v1",
     "serverid": "254513205",
     "action": "reset",
     "taskid": 700420024805,
