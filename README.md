@@ -289,5 +289,37 @@ Unsuccessful:
     "error_description": "task already running"
 }
 ```
+
+## Console
+Request URL for console access
+
+REQUEST
+
+POST https://panel.cloudatcost.com/api/v1/console
+
+PARAMS
+
+key = KEY
+
+login = example@example.com
+
+sid = SERVERID
+
+EXAMPLE
+```
+curl --data "key=KEY&login=example@example.com&sid=12345" https://panel.cloudatcost.com/api/v1/console
+```
+
+Output:
+```json
+{
+  "status": "ok",
+  "time": 1425572027,
+  "api": "v1",
+  "serverid": "1234567890",
+  "console": "http:\/\/panel.cloudatcost.com:12345\/console.html?servername=123456&hostname=1.1.1.1&sshkey=123456&sha1hash=aBcDeFgG"
+}
+```
+
 #TODO
 Metric information
