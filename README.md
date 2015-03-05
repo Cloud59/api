@@ -31,7 +31,7 @@ https://panel.cloudatcost.com/api/v2/
 ```
 
 # Standard response
-Usual respose to each query:
+Usual response to each query:
 
 Success:
 ```json
@@ -280,7 +280,7 @@ Success:
 }
 ```
 
-Unsucessful:
+Unsuccessful:
 ```json
 {
   "status": "error",
